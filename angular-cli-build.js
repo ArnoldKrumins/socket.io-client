@@ -10,6 +10,7 @@ module.exports = function(defaults) {
       'zone.js/dist/**/*.+(js|js.map)',
       'es6-shim/es6-shim.js',
       'reflect-metadata/**/*.+(js|js.map)',
+      'socket.io-client/socket.io.js',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)'
     ]
