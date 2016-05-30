@@ -4,16 +4,26 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
 
-  constructor() {}
+  private socketClient:SocketIOClient.Socket;
+
+  constructor() {
+    this.init();
+  }
+
+  init():void{
+
+    this.socketClient = io('http://localhost:3000');
+    this.socketClient.on('connection', function (data) {
+      console.log(data);
+      this.socketClient.emit('my other event', { my: 'data' });
+    });
+
+  }
 
 
   run():void{
 
-    var socket = io('http://localhost:3000');
-    socket.on('connection', function (data) {
-      console.log(data);
-      socket.emit('my other event', { my: 'data' });
-    });
+
 
   }
 
