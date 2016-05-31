@@ -10,10 +10,14 @@
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-  <client-app>Loading...</client-app>
-
+  <div class="container">
+     <div class="row">
+        <client-app>Loading...</client-app>
+      </div>
+  </div>
 
 
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
