@@ -18,5 +18,8 @@ export class ClientAppComponent {
     });
   }
 
+  send(message:string){
+    this.socketService.sendMessage(message);
+  }
 
 }

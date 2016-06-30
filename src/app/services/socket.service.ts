@@ -31,57 +31,20 @@ export class SocketService {
         observer.next(data);
       });
 
-
       return () => {
         this.socketClient.disconnect();
       };
 
     })
-
   }
 
   public communicate():Observable<any>{
-
     return this.connectionObservable;
-
   }
 
-
-  //init():void{
-  //
-  //  this.socketClient = io('http://localhost:3000');
-  //  this.socketClient.on('connection', function (data) {
-  //    console.log(data);
-  //    this.socketClient.emit('my other event', { my: 'data' });
-  //  });
-  //
-  //}
-
-  //sendMessage(message){
-  //  this.socketClient.emit('add-message', message);
-  //}
-  //
-  //getMessages() {
-  //
-  //  let observable = new Observable(observer => {
-  //    this.socketClient = io(this.url);
-  //    this.socketClient.on('message', (data) => {
-  //      observer.next(data);
-  //    });
-  //    return () => {
-  //      this.socketClient.disconnect();
-  //    };
-  //  })
-  //  return observable;
-  //}
-
-
-
-
-  run():void{}
-
-
-
+  public sendMessage(message:string):void{
+    this.socketClient.emit('new-message', message);
+  }
 
 
 }

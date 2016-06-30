@@ -1,4 +1,4 @@
-<div class="chat-box">
-  <input class="form-control" type="text"/>
-  <button class="btn-success">Join</button>
+<div class="form-inline">
+  <input #message class="form-control" type="text" placeholder="Send Message" />
+  <button (click)="send(message.value)" class="btn btn-success">Join</button>
 </div>
