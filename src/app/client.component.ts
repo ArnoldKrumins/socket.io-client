@@ -13,7 +13,9 @@ export class ClientAppComponent {
   title = 'client works!';
 
   constructor(private socketService:SocketService){
-    socketService.run();
+    socketService.communicate().subscribe((data)=> {
+      console.log(data);
+    });
   }
 
 
