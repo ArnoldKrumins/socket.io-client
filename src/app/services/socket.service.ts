@@ -8,7 +8,7 @@ export class SocketService {
 
   private socketClient:SocketIOClient.Socket;
 
-  private subject;
+  //private subject;
 
   private connectionObservable:Observable<any>;
   private messageObservable:Observable<any>;
@@ -19,7 +19,7 @@ export class SocketService {
 
   constructor() {
     this.socketClient = io(this.url);
-    this.subject = new Subject();
+    //this.subject = new Subject();
     this.init();
   }
 
@@ -48,16 +48,27 @@ export class SocketService {
       });
     });
 
-    this.connectionObservable.subscribe(this.subject);
-    this.messageObservable.subscribe(this.subject);
-    this.countObservable.subscribe(this.subject);
-    //this.connectionObservable.multicast(new Subject())
+    //this.connectionObservable.subscribe(this.subject);
+    //this.messageObservable.subscribe(this.subject);
+    //this.countObservable.subscribe(this.subject);
+
   }
 
-  public communicate():Observable<any>{
-    //return this.connectionObservable;
-    return this.subject;
+  public Connected():Observable<any>{
+    return this.connectionObservable;
+    //return this.subject;
   }
+
+  public Counter():Observable<any>{
+    return this.countObservable;
+    //return this.subject;
+  }
+
+  public Messenger():Observable<any>{
+    return this.messageObservable;
+    //return this.subject;
+  }
+
 
   public sendMessage(message:string):void{
     this.socketClient.emit('new-message', message);
