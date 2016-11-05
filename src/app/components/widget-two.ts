@@ -4,17 +4,16 @@ import {SocketService} from "../services/socket.service";
 
 @Component({
   moduleId: module.id,
-  //providers:[SocketService],
-  selector: 'widget-one',
-  templateUrl: 'widget-one.component.html',
-  styleUrls: ['widget-one.component.css']
+  selector: 'widget-two',
+  templateUrl: 'widget-two.component.html',
+  styleUrls: ['widget-two.component.css']
 })
-export class WidgetOneComponent {
+export class WidgetTwoComponent {
 
   private value:number = 0;
 
   constructor(private socketService:SocketService){
-    socketService.Counter().subscribe((data)=> {
+    socketService.Messenger().subscribe((data)=> {
       this.value = data;
     });
   }
